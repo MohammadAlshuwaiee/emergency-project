@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emergency_types",
+  "info": {
+    "name": "EmergencyType",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Type": {
+      "type": "string"
+    },
+    "RiskLevel": {
+      "type": "integer"
+    },
+    "emergencies": {
+      "collection": "emergency",
+      "via": "emergency_type"
+    }
+  }
+}

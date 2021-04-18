@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emergencies",
+  "info": {
+    "name": "Emergency"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Requester": {
+      "type": "string"
+    },
+    "Responder": {
+      "type": "string"
+    },
+    "Media": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Status": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "emergency_type": {
+      "via": "emergencies",
+      "model": "emergency-type"
+    },
+    "users": {
+      "via": "emergencies",
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}
